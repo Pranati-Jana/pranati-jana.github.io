@@ -1,24 +1,378 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Pranati Jana</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pranati Jana | Personal Website</title>
+
   <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      margin-top: 100px;
-      background-color: #f4f4f4;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
     }
-    h1 {
-      color: #333;
+
+    body{
+      font-family: Arial, sans-serif;
+      background:#f8f9fc;
+      color:#1b1b1b;
+      line-height:1.6;
     }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      background:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      position:fixed;
+      top:0;
+      z-index:1000;
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    nav h2{
+      color:#173f73;
+      font-size:28px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:35px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:#173f73;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#5a8dee;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      min-height:100vh;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      align-items:center;
+      padding-top:80px;
+    }
+
+    .hero-image{
+      height:100%;
+    }
+
+    .hero-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .hero-content{
+      padding:80px;
+      background:#f7dfe2;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .hero-content h1{
+      font-size:60px;
+      color:#173f73;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      font-size:20px;
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    .btn{
+      display:inline-block;
+      width:fit-content;
+      padding:14px 30px;
+      border:2px solid #173f73;
+      text-decoration:none;
+      color:#173f73;
+      border-radius:8px;
+      font-weight:bold;
+      transition:0.3s;
+      margin-top:10px;
+    }
+
+    .btn:hover{
+      background:#173f73;
+      color:white;
+    }
+
+    /* SECTIONS */
+
+    section{
+      padding:100px 10%;
+    }
+
+    section h2{
+      font-size:40px;
+      color:#173f73;
+      margin-bottom:30px;
+      text-align:center;
+    }
+
+    .card-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      color:#173f73;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact p{
+      margin-bottom:15px;
+      font-size:18px;
+    }
+
+    footer{
+      background:#173f73;
+      color:white;
+      text-align:center;
+      padding:25px;
+      margin-top:50px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+
+      .hero{
+        grid-template-columns:1fr;
+      }
+
+      .hero-content{
+        padding:50px 30px;
+      }
+
+      .hero-content h1{
+        font-size:42px;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+    }
+
   </style>
+
 </head>
 
 <body>
-  <h1>Welcome to My Website</h1>
-  <p>I am Pranati Jana.</p>
-  <p>PhD Scholar at IIT Madras and CMS Collaboration.</p>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <h2>Pranati Jana</h2>
+
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#hobbies">Hobbies</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop" alt="profile">
+    </div>
+
+    <div class="hero-content">
+      <h1>Hello!</h1>
+
+      <p>
+        I am Pranati Jana, a PhD scholar at IIT Madras and a member of the CMS Collaboration at CERN.
+      </p>
+
+      <p>
+        My research focuses on particle physics, silicon detectors, ultra-peripheral heavy-ion collisions, and detector R&D for future experiments.
+      </p>
+
+      <a href="#research" class="btn">Explore My Research</a>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2>About Me</h2>
+
+    <div class="card">
+      <p>
+        This is an example paragraph about yourself. You can later edit this section and write about your academic journey, research interests, goals, and experiences at CERN or IIT Madras.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- RESEARCH -->
+
+  <section id="research">
+
+    <h2>Research</h2>
+
+    <div class="card-container">
+
+      <div class="card">
+        <h3>Tau Anomalous Magnetic Moment</h3>
+        <p>
+          Example description of your research project and analysis work in CMS.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>MALTA Sensor Studies</h3>
+        <p>
+          Example description about silicon detector R&D and irradiation studies.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>ALP Searches</h3>
+        <p>
+          Example description about light-by-light scattering and axion-like particles.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PUBLICATIONS -->
+
+  <section id="publications">
+
+    <h2>Publications & Talks</h2>
+
+    <div class="card-container">
+
+      <div class="card">
+        <h3>Publication Example</h3>
+        <p>
+          Add your journal papers, conference proceedings, and presentations here.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Conference Talk Example</h3>
+        <p>
+          Add your conference talks and workshop presentations here.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- HOBBIES -->
+
+  <section id="hobbies">
+
+    <h2>Hobbies & Interests</h2>
+
+    <div class="card-container">
+
+      <div class="card">
+        <h3>Photography</h3>
+        <p>
+          Example text about photography and travel interests.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Coding</h3>
+        <p>
+          Example text about programming, AI, and scientific computing.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Reading</h3>
+        <p>
+          Example text about books, science outreach, and learning.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="contact">
+
+    <h2>Contact</h2>
+
+    <p>Email: pranati@example.com</p>
+
+    <p>GitHub: github.com/pranati-jana</p>
+
+    <p>LinkedIn: Add your LinkedIn profile here</p>
+
+    <a href="#" class="btn">Download CV</a>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Pranati Jana | Personal Academic Website
+  </footer>
+
 </body>
 </html>
 
