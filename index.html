@@ -68,26 +68,25 @@
       background-repeat:no-repeat;
   
       display:flex;
-      justify-content:center;
+      justify-content:flex-end;
       align-items:center;
-      text-align:center;
-  
       position:relative;
+      padding-right:10%;
     }
     /* Dark transparent layer */
     .hero::before{
         content:"";
         position:absolute;
         inset:0;
-        background:rgba(0,0,0,0.4);
+        background:rgba(0,0,0,0.25);
     }
 
     .hero-overlay{
         position:relative;
         z-index:2;
         color:white;
-        max-width:800px;
-        padding:20px;
+        max-width:500px;
+        ptext-align:left;;
     }
   
     .hero-overlay h1{
