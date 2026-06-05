@@ -233,12 +233,11 @@
     }
 
     .quote-slide{
-      display:none;
-      font-style:italic;
+      height:250px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
       text-align:center;
-      font-size:18px;
-      color:#173f73;
-      line-height:1.7;
     }
     /* CONTACT */
 
@@ -470,11 +469,13 @@
   
       <div class="hobby-card">
         <h3>Painting</h3>
-         <div class="slideshow-container">
+        <div class="slideshow-container">
         <img class="painting-slide" src="painting1.jpg">
         <img class="painting-slide" src="painting2.jpg">
         <img class="painting-slide" src="painting3.jpg">
         <img class="painting-slide" src="painting4.jpg">
+        <img class="painting-slide" src="painting5.jpg">
+        <img class="painting-slide" src="painting6.jpg">
         </div>
         <p>
           I enjoy painting in my free time as a creative outlet and a way to explore new ideas beyond science.
@@ -506,6 +507,10 @@
   
       <div class="hobby-card">
         <h3>Volunteering</h3>
+        <div class="slideshow-container">
+        <img class="painting-slide" src="vol1.jpg">
+        <img class="painting-slide" src="vol2.jpg">
+        </div>
         <p>
           I like participating in community activities such as beach-cleaning drives, campus outreach, and volunteering events.
         </p>
@@ -552,6 +557,33 @@
     
     rotateImages();
     setInterval(rotateImages, 3000);
+
+
+// Quote slideshow
+
+  let quoteIndex = 0;
+  const quotes = document.querySelectorAll(".quote-slide");
+  
+  function showQuotes() {
+  
+      quotes.forEach(quote => {
+          quote.style.display = "none";
+      });
+  
+      quoteIndex++;
+  
+      if (quoteIndex > quotes.length) {
+          quoteIndex = 1;
+      }
+  
+      quotes[quoteIndex - 1].style.display = "block";
+  
+      setTimeout(showQuotes, 4000);
+  }
+  
+  showQuotes();
+
+
 
   </script>
 </body>
