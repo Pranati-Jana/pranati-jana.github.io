@@ -209,6 +209,35 @@
       margin-bottom:15px;
     }
 
+    .slideshow-container{
+      width:100%;
+      margin-bottom:15px;
+    }
+
+    .painting-slide{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      border-radius:10px;
+      display:none;
+    }
+
+    .quote-box{
+      height:250px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
+
+    .quote-slide{
+      display:none;
+      font-style:italic;
+      text-align:center;
+      font-size:18px;
+      color:#173f73;
+      line-height:1.7;
+    }
     /* CONTACT */
 
     .contact{
@@ -442,13 +471,35 @@
         <p>
           I enjoy painting in my free time as a creative outlet and a way to explore new ideas beyond science.
         </p>
+         <div class="slideshow-container">
+        <img class="painting-slide" src="painting1.jpg">
+        <img class="painting-slide" src="painting2.jpg">
+        <img class="painting-slide" src="painting3.jpg">
+        <img class="painting-slide" src="painting4.jpg">
+        </div>
       </div>
   
       <div class="hobby-card">
-        <h3>Reading</h3>
-        <p>
-          I enjoy reading about science, technology, history, and topics related to personal growth and learning.
-        </p>
+         <h3>Reading</h3>
+         <div class="quote-box">
+
+          <p class="quote-slide">
+            "The important thing is not to stop questioning." — Albert Einstein
+          </p>
+      
+          <p class="quote-slide">
+            "Somewhere, something incredible is waiting to be known." — Carl Sagan
+          </p>
+      
+          <p class="quote-slide">
+            "Research is what I'm doing when I don't know what I'm doing." — Wernher von Braun
+          </p>
+      
+          <p class="quote-slide">
+            "Not only is the Universe stranger than we think, it is stranger than we can think." — Werner Heisenberg
+          </p>
+
+          </div>
       </div>
   
       <div class="hobby-card">
