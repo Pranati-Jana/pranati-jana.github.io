@@ -224,6 +224,16 @@
       transition:opacity 1s ease-in-out;
     }
 
+    .vol-slide{
+      position:absolute;
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      border-radius:10px;
+      opacity:0;
+      transition:opacity 1s ease-in-out;
+    }
+
     .quote-box{
       height:250px;
       display:flex;
@@ -508,8 +518,8 @@
       <div class="hobby-card">
         <h3>Volunteering</h3>
         <div class="slideshow-container">
-        <img class="painting-slide" src="vol1.png">
-        <img class="painting-slide" src="vol2.png">
+        <img class="vol-slide" src="vol1.png">
+        <img class="vol-slide" src="vol2.png">
         </div>
         <p>
           I like participating in beach-cleaning drives, campus outreach, and bird counting.
@@ -557,31 +567,45 @@
     
     rotateImages();
     setInterval(rotateImages, 3000);
-
+    
+    let current1 = 0;
+      const slides1 = document.querySelectorAll(".vol-slide");
+      
+      function rotateImages1() {
+      
+        slides1.forEach(slide => slide.style.opacity = 0);
+      
+        slides1[current1].style.opacity = 1;
+      
+        current1 = (current1 + 1) % slides1.length;
+      }
+      
+      rotateImages1();
+      setInterval(rotateImages1, 3000);
 
 // Quote slideshow
 
-  let quoteIndex = 0;
-  const quotes = document.querySelectorAll(".quote-slide");
-  
-  function showQuotes() {
-  
-      quotes.forEach(quote => {
-          quote.style.display = "none";
-      });
-  
-      quoteIndex++;
-  
-      if (quoteIndex > quotes.length) {
-          quoteIndex = 1;
-      }
-  
-      quotes[quoteIndex - 1].style.display = "block";
-  
-      setTimeout(showQuotes, 4000);
-  }
-  
-  showQuotes();
+    let quoteIndex = 0;
+    const quotes = document.querySelectorAll(".quote-slide");
+    
+    function showQuotes() {
+    
+        quotes.forEach(quote => {
+            quote.style.display = "none";
+        });
+    
+        quoteIndex++;
+    
+        if (quoteIndex > quotes.length) {
+            quoteIndex = 1;
+        }
+    
+        quotes[quoteIndex - 1].style.display = "block";
+    
+        setTimeout(showQuotes, 4000);
+    }
+    
+    showQuotes();
 
 
 
