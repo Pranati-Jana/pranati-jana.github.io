@@ -109,14 +109,23 @@
     }
 
     .research-item{
-      display:flex;
-      gap:40px;
-      align-items:center;
       margin-bottom:50px;
     }
 
     .research-text{
-      flex:2;
+      margin-bottom:25px;
+    }
+
+    .research-gallery{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:15px;
+    }
+
+    .research-gallery img{
+      width:100%;
+      border-radius:10px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.15);
     }
 
     .conference-container{
@@ -372,8 +381,13 @@
         </p>
       </div>
     
-      <div class="research-image">
+      <div class="research-gallery">
+    
         <img src="MALTA2_plot.png" alt="MALTA2 Results">
+        <img src="TestBeam.png" alt="Test Beam">
+        <img src="Efficiency.png" alt="Efficiency">
+        <img src="Noise.png" alt="Noise">
+    
       </div>
     </div>
 
@@ -408,7 +422,7 @@
         </p>
       </div>
     
-      <div class="research-image">
+      <div class="research-gallery">
         <img src="MALTA2_plot.png" alt="MALTA2 Results">
       </div>
     </div>
