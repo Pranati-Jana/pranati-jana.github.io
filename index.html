@@ -109,16 +109,35 @@
     }
 
     .research-item{
-      margin-bottom:50px;
-    }
+    display:flex;
+    gap:40px;
+    align-items:center;
+    margin-bottom:50px;
+   }
 
     .research-text{
-      margin-bottom:25px;
+        flex:1;
+    }
+    
+    .research-slideshow{
+        flex:1;
+        position:relative;
+        min-height:350px;
     }
 
+    .research-slide{
+        position:absolute;
+        width:100%;
+        height:350px;
+        object-fit:contain;
+        border-radius:10px;
+    
+        opacity:0;
+        transition:opacity 1s ease-in-out;
+    }
     .research-gallery{
       display:grid;
-      grid-template-columns:repeat(2,1fr);
+      grid-template-columns:repeat(4,1fr);
       gap:15px;
     }
 
@@ -383,34 +402,40 @@
     
       <div class="research-gallery">
     
-        <img src="MALTA2_plot.png" alt="MALTA2 Results">
-        <img src="TestBeam.png" alt="Test Beam">
-        <img src="Efficiency.png" alt="Efficiency">
-        <img src="Noise.png" alt="Noise">
+        <img src="Analysis1.png" alt="Analysis1 Results">
+        <img src="Analysis2.png" alt="Analysis2">
+        <img src="Analysis3.png" alt="Analysis3">
+        <img src="Analysis4.png" alt="Analysis4">
+        <img src="Analysis5.png" alt="Analysis5">
+        <img src="Analysis6.png" alt="Analysis6">
+        <img src="Analysis7.png" alt="Analysis7">
+        <img src="Analysis8.png" alt="Analysis8">
     
       </div>
     </div>
-
     <h3>Hardware Activities</h3>
-
     <div class="research-item">
-    
-      <div class="research-text">
-        <p>
-          I have been involved in silicon detector R&D for future high-energy physics experiments. My work includes characterization of the MALTA sensor, radiation hardness studies, test beam campaigns at CERN SPS, and investigations of detector performance under various operating conditions.
-        </p>
-      </div>
-    
-      <div class="research-gallery">
-    
-        <img src="MALTA2_plot.png" alt="MALTA2 Results">
-        <img src="TestBeam.png" alt="Test Beam">
-        <img src="Efficiency.png" alt="Efficiency">
-        <img src="Noise.png" alt="Noise">
-    
-      </div>
-    
+
+    <div class="research-text">
+      <p>
+        I have been involved in silicon detector R&D for future high-energy physics experiments. My work includes characterization of the MALTA sensor, radiation hardness studies, test beam campaigns at CERN SPS, and investigations of detector performance under various operating conditions.
+      </p>
     </div>
+  
+    <div class="research-slideshow">
+  
+      <img class="research-slide" src="MALTA1.png" alt="">
+      <img class="research-slide" src="MALTA2.png" alt="">
+      <img class="research-slide" src="MALTA3.png" alt="">
+      <img class="research-slide" src="MALTA4.png" alt="">
+      <img class="research-slide" src="MALTA5.png" alt="">
+      <img class="research-slide" src="MALTA6.png" alt="">
+      <img class="research-slide" src="MALTA7.png" alt="">
+      <img class="research-slide" src="MALTA8.png" alt="">
+  
+    </div>
+
+ </div>
 
     <h3>Machine learning</h3>
 
@@ -634,6 +659,25 @@
     © 2026 Pranati Jana | Personal Academic Website
   </footer>
   <script>
+  let researchIndex = 0;
+  const researchSlides =
+        document.querySelectorAll(".research-slide");
+  
+  function showResearchSlides(){
+  
+      researchSlides.forEach(slide=>{
+          slide.style.opacity = 0;
+      });
+  
+      researchSlides[researchIndex].style.opacity = 1;
+  
+      researchIndex =
+          (researchIndex + 1) % researchSlides.length;
+  }
+  
+  showResearchSlides();
+  
+  setInterval(showResearchSlides,3000);
 
     let current = 0;
     const slides = document.querySelectorAll(".painting-slide");
