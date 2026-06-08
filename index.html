@@ -685,8 +685,8 @@
     © 2026 Pranati Jana | Personal Academic Website
   </footer>
   <script>
-  let researchIndex = 0;
-  const researchSlides =
+  let researchIndex1 = 0;
+  const researchSlides1 =
         document.querySelectorAll(".research-slide1");
   
   function showResearchSlides1(){
@@ -695,10 +695,10 @@
           slide.style.opacity = 0;
       });
   
-      researchSlides1[researchIndex].style.opacity = 1;
+      researchSlides1[researchIndex1].style.opacity = 1;
   
-      researchIndex =
-          (researchIndex + 1) % researchSlides1.length;
+      researchIndex1 =
+          (researchIndex1 + 1) % researchSlides1.length;
   }
   
   showResearchSlides1();
