@@ -1,824 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pranati Jana | Personal Website</title>
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family: Arial, sans-serif;
-      background:#f8f9fc;
-      color:#1b1b1b;
-      line-height:1.6;
-    }
-
-    /* NAVBAR */
-
-    nav{
-      width:100%;
-      background:white;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 8%;
-      position:fixed;
-      top:0;
-      z-index:1000;
-      box-shadow:0 2px 10px rgba(0,0,0,0.05);
-    }
-
-    nav h2{
-      color:#173f73;
-      font-size:28px;
-    }
-
-    nav ul{
-      display:flex;
-      list-style:none;
-      gap:35px;
-    }
-
-    nav ul li a{
-      text-decoration:none;
-      color:#173f73;
-      font-weight:600;
-      transition:0.3s;
-    }
-
-    nav ul li a:hover{
-      color:#5a8dee;
-    }
-
-    /* HERO SECTION */
-
-    .hero{
-      height:160vh;
-      background-image:url("pj1.jpg");
-      background-size:cover;
-      background-position:center 35%;
-      background-repeat:no-repeat;
-  
-      display:flex;
-      justify-content:flex-end;
-      align-items:center;
-      position:relative;
-      padding-right:3%;
-    }
-    /* Dark transparent layer */
-    .hero::before{
-        content:"";
-        position:absolute;
-        inset:0;
-        background:rgba(0,0,0,0.25);
-    }
-
-    .hero-overlay{
-        position:relative;
-        z-index:2;
-        color:white;
-        max-width:500px;
-        ptext-align:left;;
-    }
-  
-    .hero-overlay h1{
-        font-size:70px;
-        margin-bottom:20px;
-    }
-    .hero-overlay p{
-    font-size:24px;
-    margin-bottom:30px;
-    }
-
-    .hero-overlay .btn{
-        border:2px solid white;
-        color:white;
-    }
-
-    .hero-overlay .btn:hover{
-        background:white;
-        color:black;
-    }
-
-    .research-item{
-    display:flex;
-    gap:40px;
-    align-items:center;
-    margin-bottom:50px;
-   }
-
-    .research-text{
-        flex:1;
-    }
-    
-    .research-slideshow{
-        flex:1;
-        position:relative;
-        min-height:350px;
-    }
-
-    .research-slide{
-        position:absolute;
-        width:100%;
-        height:350px;
-        object-fit:contain;
-        border-radius:10px;
-        opacity:0;
-        transition:opacity 1s ease-in-out;
-    }
-
-    .research-slideshow1{
-        flex:1;
-        position:relative;
-        min-height:350px;
-    }
-
-    .research-slide1{
-        position:absolute;
-        width:100%;
-        height:350px;
-        object-fit:contain;
-        border-radius:10px;
-        opacity:0;
-        transition:opacity 1s ease-in-out;
-    }
-    .research-gallery{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:15px;
-    }
-
-    .research-gallery img{
-      width:100%;
-      border-radius:10px;
-      box-shadow:0 4px 15px rgba(0,0,0,0.15);
-    }
-
-    .conference-container{
-      display:flex;
-      gap:40px;
-      align-items:flex-start;
-    }
-
-    .conference-text{
-      flex:2;
-    }
-    
-    .conference-gallery{
-      flex:1;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-
-   .conference-gallery img{
-      width:100%;
-      aspect-ratio:1;
-      object-fit:cover;
-      border-radius:8px;
-    }
-
-    .btn{
-      display:inline-block;
-      width:fit-content;
-      padding:14px 30px;
-      border:2px solid #173f73;
-      text-decoration:none;
-      color:#173f73;
-      border-radius:8px;
-      font-weight:bold;
-      transition:0.3s;
-      margin-top:10px;
-    }
-
-    .btn:hover{
-      background:#173f73;
-      color:white;
-    }
-
-    /* SECTIONS */
-
-    section{
-      padding:100px 10%;
-    }
-
-    section h2{
-      font-size:40px;
-      color:#173f73;
-      margin-bottom:30px;
-      text-align:center;
-    }
-
-    .card-container{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:25px;
-    }
-
-    .card{
-      background:white;
-      padding:30px;
-      border-radius:15px;
-      box-shadow:0 5px 20px rgba(0,0,0,0.08);
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-5px);
-    }
-
-    .card h3{
-      margin-bottom:15px;
-      color:#173f73;
-    }
-    .hobbies-container{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:25px;
-      margin-top:30px;
-    }
-
-    .hobby-card{
-      background:white;
-      padding:30px;
-      border-radius:15px;
-      box-shadow:0 5px 20px rgba(0,0,0,0.08);
-      transition:0.3s;
-    }
-
-    .hobby-card:hover{
-      transform:translateY(-5px);
-    }
-
-    .hobby-card h3{
-      color:#173f73;
-      margin-bottom:15px;
-    }
-
-    .slideshow-container{
-      position:relative;
-      height:250px;
-    }
-
-    .painting-slide{
-      position:absolute;
-      width:100%;
-      height:250px;
-      object-fit:cover;
-      border-radius:10px;
-      opacity:0;
-      transition:opacity 1s ease-in-out;
-    }
-
-    .vol-slide{
-      position:absolute;
-      width:100%;
-      height:250px;
-      object-fit:cover;
-      border-radius:10px;
-      opacity:0;
-      transition:opacity 1s ease-in-out;
-    }
-
-    .quote-box{
-      height:250px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:20px;
-    }
-
-    .quote-slide{
-      height:250px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-    }
-    /* CONTACT */
-
-    .contact{
-      text-align:center;
-    }
-
-    .contact p{
-      margin-bottom:15px;
-      font-size:18px;
-    }
-
-    footer{
-      background:#173f73;
-      color:white;
-      text-align:center;
-      padding:25px;
-      margin-top:50px;
-    }
-
-    /* MOBILE */
-
-    @media(max-width:900px){
-
-      .hero{
-        grid-template-columns:1fr;
-      }
-
-      .hero-content{
-        padding:50px 30px;
-      }
-
-      .hero-content h1{
-        font-size:42px;
-      }
-
-      nav{
-        flex-direction:column;
-        gap:15px;
-      }
-
-      nav ul{
-        flex-wrap:wrap;
-        justify-content:center;
-      }
-
-    }
-
-  </style>
-
-</head>
-
-<body>
-
-  <!-- NAVBAR -->
-
-  <nav>
-    <h2>Pranati Jana</h2>
-
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#hobbies">Hobbies</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-  <div class="hero-overlay">
-    <h1>Pranati Jana</h1>
-
-    <p>
-      Ph.D. in Experimental High Energy Physics<br>
-      IIT Madras | CMS Collaboration, CERN
-    </p>
-
-  </div>
-
-  </section>
-
-  <!-- ABOUT -->
-
-  <section id="about">
-
-    <h2>About Me</h2>
-      <p>
-        I am a particle physicist, recently completed my Ph.D. in Experimental High Energy Physics at IIT Madras, as part of the CMS Collaboration at CERN. My work spans both physics analysis and detector development, with interests in particle physics, semiconductor detectors, and machine learning applications in science. I also had the opportunity to participate in the Fermilab LPC Guest & Visitor Program, contributing to the CMS Outer Tracker Upgrade. Outside of research, I enjoy volunteering in community activities such as beach-cleaning drives and campus outreach programs. In my free time, I enjoy painting and exploring new ideas through both science and creativity.
-      </p>
-    
-  </section>
-
-  <!-- RESEARCH -->
-
-  <section id="research">
-
-    <h2>Research</h2>
-
-    <div class="research-section">
-
-    <h3>Physics Analysis</h3>
-    <!-- Analysis 1 -->
-    <div class="research-item">
-      <div class="research-text">
-      <h4>Measurement of light-by-light scattering and the breit-wheeler process, and search for axion-like particles in ultraperipheral PbPb collisions at 5.02 TeV</h4>
-      <p>
-        Measurement of light-by-light scattering and the breit-wheeler process, and search for axion-like particles in ultraperipheral PbPb collisions at 5.02 TeV
-      </p>
-      </div>
-    
-      <div class="research-slideshow1">
-    
-        <img class="research-slide1" src="Analysis1.png" alt="Analysis1 Results">
-        <img class="research-slide1" src="Analysis2.png" alt="Analysis2">
-        <img class="research-slide1" src="Analysis3.png" alt="Analysis3">
-        <img class="research-slide1" src="Analysis4.png" alt="Analysis4">
-        <img class="research-slide1" src="Analysis5.png" alt="Analysis5">
-        <img class="research-slide1" src="Analysis6.png" alt="Analysis6">
-        <img class="research-slide1" src="Analysis7.png" alt="Analysis7">
-        <img class="research-slide1" src="Analysis8.png" alt="Analysis8">
-        <img class="research-slide1" src="Analysis9.png" alt="Analysis9">
-        <img class="research-slide1" src="Analysis10.png" alt="Analysis10">
-        <img class="research-slide1" src="Analysis11.png" alt="Analysis11">
-        <img class="research-slide1" src="Analysis12.png" alt="Analysis12">
-        <img class="research-slide1" src="Analysis13.png" alt="Analysis13">
-        <img class="research-slide1" src="Analysis14.png" alt="Analysis14">
-        <img class="research-slide1" src="Analysis15.png" alt="Analysis15">
-        <img class="research-slide1" src="Analysis16.png" alt="Analysis16">
-        <img class="research-slide1" src="Analysis17.png" alt="Analysis17">
-        <img class="research-slide1" src="Analysis18.png" alt="Analysis18">
-        <img class="research-slide1" src="Analysis19.png" alt="Analysis19">
-    
-      </div>
-    </div>
-    <!-- Analysis 2 -->
-<div class="research-item">
-
-  <div class="research-text">
-    <h4>Measurement of the anomalous magnetic moment of tau lepton in ultraperipheral PbPb collisions at CMS at 5.02 TeV</h4>
-    <p>
-      Anomalous moment of tau lepton is measured using UPC PbPb data collected by CMS. Four different channels of diTau decay are included. I mainly worked on the electron+muon channel.
-    </p>
-  </div>
-
-  <div class="research-slideshow1">
-    <img class="research-slide1" src="Analysis21.png" alt="">
-    <img class="research-slide1" src="Analysis22.png" alt="">
-    <img class="research-slide1" src="Analysis23.png" alt="">
-    <img class="research-slide1" src="Analysis24.png" alt="">
-  </div>
-
-</div>
-
-<!-- Analysis 3 -->
-<div class="research-item">
-
-  <div class="research-text">
-    <h4>Luminosity calibration of 2017 XeXe collisions at 5.44 TeV</h4>
-    <p>
-      We performed the luminosity calibration for the CMS experiment during the Xenon-Xenon collisions that occurred in the year 2017 at a nucleon-nucleon center-of-mass energy of 5.44 TeV and also the cross-luminometer consistency
-    </p>
-  </div>
-
-  <div class="research-slideshow1">
-    <img class="research-slide1" src="Analysis31.png" alt="">
-    <img class="research-slide1" src="Analysis32.png" alt="">
-    <img class="research-slide1" src="Analysis33.png" alt="">
-  </div>
-
-</div>
-    
-    <h3>Hardware Activities</h3>
-    <div class="research-item">
-
-    <div class="research-text">
-      <p>
-        I have been involved in silicon detector R&D for future high-energy physics experiments. My work includes characterization of the MALTA2 sensor, radiation hardness studies, test beam campaigns at CERN SPS.
-      </p>
-    </div>
-  
-    <div class="research-slideshow">
-  
-      <img class="research-slide" src="MALTA1.png" alt="">
-      <img class="research-slide" src="MALTA2.png" alt="">
-      <img class="research-slide" src="MALTA3.png" alt="">
-      <img class="research-slide" src="MALTA4.png" alt="">
-      <img class="research-slide" src="MALTA5.png" alt="">
-      <img class="research-slide" src="MALTA6.png" alt="">
-      <img class="research-slide" src="MALTA7.png" alt="">
-      <img class="research-slide" src="MALTA8.png" alt="">
-  
-    </div>
-
- </div>
-
-    <h3>Machine learning</h3>
-
-    <div class="research-item">
-    
-      <div class="research-text">
-        <p>
-          I have been involved in silicon detector R&D for future high-energy physics experiments. My work includes characterization of the MALTA sensor, radiation hardness studies, test beam campaigns at CERN SPS, and investigations of detector performance under various operating conditions.
-        </p>
-      </div>
-    
-      <div class="research-gallery">
-        <img src="MALTA2_plot.png" alt="MALTA2 Results">
-      </div>
-    </div>
-
-  </div>
-
-  </section>
-
-  <!-- PUBLICATIONS -->
-
-  <section id="publications">
-
-    <h2>Publications & Talks</h2>
-
-    <div class="Publications-Talks">
-
-        <h3>Publications</h3>
-        <ul class="publication-list">
-        <li>
-          CMS Collaboration, ``Measurement of light-by-light scattering and the Breit-Wheeler process, and search for axion-like particles in ultraperipheral PbPb collisions at $\sqrt{s}_{NN}$ = 5.02 TeV,". CMS Collaboration, JHEP, 2025, 6 (2025); https://doi.org/10.1007/JHEP08(2025)006.
-        </li>
-
-        <li>
-          ``Measurement of the tau g-2 factor in ultraperipheral PbPb collisions recorded by the cms experiment,"  CERN, Geneva, Tech. Rep., 2024. Available: http://cds.cern.ch/record/2912969.
-        </li>
-
-        <li>
-          ``Radiation hardness of MALTA2 monolithic CMOS imaging sensors on Czochralski substrates",Eur. Phys. J., vol. C84, p. 251, 2024. doi: https://doi.org/10.1140/epjc/s10052-024-12601-3.
-        </li>
-
-        <li>
-          CMS Collaboration, ``Luminosity calibration of 2017 XeXe collisions at 5.44 TeV," CERN-CMS-DP-2024-015. Available: https://cds.cern.ch/record/2891266?ln=en.
-        </li>
-        </ul>
-        <h3>Conferences</h3>
-        <div class="conference-container">
-           <div class="conference-text">
-            <ul class="conference-list">
-          
-              <li>
-                <strong>2026</strong> – Photon–Photon Physics in Ultra-Peripheral PbPb Collisions at CMS and my activity on Silicon Detector R&D for future detectors, LPC Physics Forum, Fermilab.
-              </li>
-        
-              <li>
-                <strong>2025</strong> – Exclusive photon and lepton production in UPC PbPb @ 5.02 TeV at CMS, PHANC'25, Puri, India.
-              </li>
-        
-              <li>
-                <strong>2024</strong> – Radiation hardness study of MALTA2 sensor, DAE-BRNS Symposium 2024, IIT BHU, Varanasi, India.
-              </li>
-        
-              <li>
-                <strong>2024</strong> – Measurement of the tau g−2 factor in ultraperipheral PbPb collisions recorded by the CMS experiment, DAE-BRNS Symposium 2024, IIT BHU, India.
-              </li>
-                  
-              <li>
-                <strong>2024</strong> – Exclusive photon and lepton production in UPC PbPb @5.02TeV at CMS, PPC 2024)}, IIT Hyderabad, India. 
-              </li>
-        
-              <li>
-                <strong>2024</strong> – Measurement of Breit-Wheeler process, light-by-light scattering and searches for axion-like particles in UPC PbPb @ 5.02 TeV at CMS, HardProbes 2024, Nagasaki, Japan.
-              </li>
-        
-              <li>
-                <strong>2024</strong> – Participated in Experimental High Energy Particle Physics School on software development school at TIFR Mumbai, India.
-              </li>
-                  
-              <li>
-                <strong>2023</strong> – Exclusive production in UPC PbPb collisions, Heavy Ion Physics Workshop, ECT*, Trento, Italy.
-              </li>
-        
-              <li>
-                <strong>2023</strong>  Measurement of the tau g-2 factor in ultraperipheral PbPb collisions at CMS experiment", Speaker at In-House Symposium at Department of Physics, IIT Madras, India.
-              </li>
-                  
-              <li>
-                <strong>2022</strong> – Observation of γγ → ττ production in PbPb collisions with the CMS experiment, DAE-BRNS HEP Symposium 2022, IISER Mohali, India.
-              </li>
-                 <strong>2022</strong> – Measurement of the tau g-2 factor in ultraperipheral PbPb collisions at CMS experiment using electron+muon decay channel, presented poster at AEPSHEP2022 at Pyeongchang (Korea, Republic Of).
-              <li>
-                <strong>2022</strong> – Observation of γγ → ττ production in PbPb collisions with the CMS experiment, DAE-BRNS HEP Symposium 2022, IISER Mohali, India.
-              </li>
-        
-              <li>
-                <strong>2019</strong> – Participated in summer School on Quantum Information and Technology (QIQT2019)} at IISER Kolkata, India
-              </li>
-     
-           </ul>
-    
-       </div>
-       <div class="conference-gallery">
-
-      <img src="AEPSHEP.jpg" alt="AEPSHEP">
-      <img src="DAEBRNS2024.png" alt="DAEBRNS2024">
-      <img src="EHEP.png" alt="EHEP">
-      <img src="ECT.png" alt="ECT">
-  
-    </div>
-  
-  </div>
-      
-
-  </section>
-
-  <!-- HOBBIES -->
-
-  <section id="hobbies">
-
-    <h2>Hobbies & Interests</h2>
-
-    <div class="hobbies-container">
-  
-      <div class="hobby-card">
-        <h3>Painting</h3>
-        <div class="slideshow-container">
-        <img class="painting-slide" src="painting1.jpg">
-        <img class="painting-slide" src="painting2.jpg">
-        <img class="painting-slide" src="painting3.jpg">
-        <img class="painting-slide" src="painting4.jpg">
-        <img class="painting-slide" src="painting5.jpg">
-        <img class="painting-slide" src="painting6.jpg">
-        </div>
-        <p>
-          I enjoy painting inspired by nature
-        </p>
-      </div>
-  
-      <div class="hobby-card">
-         <h3>Reading</h3>
-         <div class="quote-box">
-
-           <p class="quote-slide">
-            "The decisions of our past are the architects of our present." — Dan Brown
-          </p>
-      
-          <p class="quote-slide">
-            "The power of knowledge is growing exponentially." — Dan Brown
-          </p>
-
-          <p class="quote-slide">
-            "Nothing is more creative... nor destructive... than a brilliant mind with a purpose." — Dan Brown
-          </p>
-      
-          <p class="quote-slide">
-            "Each of us is now electronically connected to the globe, and yet we feel utterly alone" — Dan Brown
-          </p>
-
-          <p class="quote-slide">
-            "Sometimes, all you have to do is shift your perspective to see someone else’s truth." - Dan Brown
-          </p>
-
-          <p class="quote-slide">
-            "Seek the goodness, become the goodness." - Dan Brown
-          </p>
-
-          <p class="quote-slide">
-            " Today is today. But there are many tomorrows" - Dan Brown
-          </p>
-
-          <p class="quote-slide">
-            "We are the masters of our own universe." - Dan Brown
-          </p>
-
-          <p class="quote-slide">
-            "Sooner or later we've all got to let go of our past." - Dan Brown
-          </p>
-
-          <p class="quote-slide">
-            "There's just no substitute for the truth." - Dan Brown
-          </p>
-      
-          </div>
-      </div>
-  
-      <div class="hobby-card">
-        <h3>Volunteering</h3>
-        <div class="slideshow-container">
-        <img class="vol-slide" src="vol1.png">
-        <img class="vol-slide" src="vol2.png">
-        </div>
-        <p>
-          I like participating in beach-cleaning drives, campus outreach, and bird counting.
-        </p>
-      </div>
-
-  </div>
-
-  </section>
-
-  <!-- CONTACT -->
-
-  <section id="contact" class="contact">
-
-    <h2>Contact</h2>
-
-    <p>Email: tukupranati@gmail.com</p>
-
-    <p>GitHub: github.com/pranati-jana</p>
-
-    <p>LinkedIn: https://www.linkedin.com/in/pranati-jana-ba7825172/</p>
-
-    <a href="CV_PranatiJana.pdf" class="btn" target="_blank">Download CV</a>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-    © 2026 Pranati Jana | Personal Academic Website
-  </footer>
-  <script>
-  let researchIndex1 = 0;
-  const researchSlides1 =
-        document.querySelectorAll(".research-slide1");
-  
-  function showResearchSlides1(){
-  
-      researchSlides1.forEach(slide=>{
-          slide.style.opacity = 0;
-      });
-  
-      researchSlides1[researchIndex1].style.opacity = 1;
-  
-      researchIndex1 =
-          (researchIndex1 + 1) % researchSlides1.length;
+<!-- =========================================================
+  RESEARCH: 3 BOXES (Analysis | Hardware | Machine Learning)
+  Each box flashes through its own related works.
+  1) CSS  -> paste inside <style> (delete old research slideshow rules)
+  2) HTML -> replace your whole <section id="research"> block
+  3) JS   -> replace old researchIndex / researchIndex1 code
+========================================================== -->
+
+<!-- ================= 1) CSS ================= -->
+<style>
+  .r-boxes{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:25px; align-items:start;
   }
-  
-  showResearchSlides1();
-  
-  setInterval(showResearchSlides1,3000);
-  
-  let researchIndex = 0;
-  const researchSlides =
-        document.querySelectorAll(".research-slide");
-  
-  function showResearchSlides(){
-  
-      researchSlides.forEach(slide=>{
-          slide.style.opacity = 0;
-      });
-  
-      researchSlides[researchIndex].style.opacity = 1;
-  
-      researchIndex =
-          (researchIndex + 1) % researchSlides.length;
+  .r-box{
+    background:white; border-radius:15px; padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08); position:relative;
   }
-  
-  showResearchSlides();
-  
-  setInterval(showResearchSlides,3000);
+  .r-box > h3{
+    color:#173f73; text-align:center; margin-bottom:15px;
+    padding-bottom:10px; border-bottom:2px solid #e3e8f4;
+  }
+  /* all items share one grid cell; only the active one is visible */
+  .r-items{ display:grid; }
+  .r-item{
+    grid-area:1/1; opacity:0; pointer-events:none;
+    transition:opacity .8s ease;
+  }
+  .r-item.active{ opacity:1; pointer-events:auto; }
+  .r-item h4{ color:#173f73; font-size:16px; margin-bottom:10px; }
+  .r-item p{ font-size:14px; margin-bottom:12px; }
 
-    let current = 0;
-    const slides = document.querySelectorAll(".painting-slide");
-    
-    function rotateImages() {
-    
-      slides.forEach(slide => slide.style.opacity = 0);
-    
-      slides[current].style.opacity = 1;
-    
-      current = (current + 1) % slides.length;
+  .research-slideshow{ position:relative; height:240px; }
+  .research-slideshow img{
+    position:absolute; width:100%; height:240px; object-fit:contain;
+    border-radius:10px; opacity:0; transition:opacity 1s ease-in-out;
+  }
+  .r-dots{ text-align:center; margin-top:15px; min-height:11px; }
+  .r-dots span{
+    display:inline-block; width:10px; height:10px; margin:0 4px;
+    background:#c5cde0; border-radius:50%; cursor:pointer; transition:.3s;
+  }
+  .r-dots span.active{ background:#173f73; transform:scale(1.3); }
+
+  @media(max-width:900px){
+    .r-boxes{ grid-template-columns:1fr; }
+  }
+</style>
+
+<!-- ================= 2) HTML ================= -->
+<section id="research">
+  <h2>Research</h2>
+
+  <div class="r-boxes">
+
+    <!-- BOX 1: Physics Analysis (3 works flash one by one) -->
+    <div class="r-box">
+      <h3>Physics Analysis</h3>
+      <div class="r-items">
+
+        <div class="r-item">
+          <h4>Light-by-light scattering, Breit-Wheeler process and axion-like particle search in UPC PbPb collisions at 5.02 TeV</h4>
+          <p>Add a short description here.</p>
+          <div class="research-slideshow" data-src="images/Analysis{n}.png" data-from="1" data-to="19"></div>
+        </div>
+
+        <div class="r-item">
+          <h4>Anomalous magnetic moment of the tau lepton in UPC PbPb collisions at 5.02 TeV</h4>
+          <p>Measured using UPC PbPb data collected by CMS, with four diTau decay channels. I mainly worked on the electron+muon channel.</p>
+          <div class="research-slideshow" data-src="images/Analysis{n}.png" data-from="21" data-to="24"></div>
+        </div>
+
+        <div class="r-item">
+          <h4>Luminosity calibration of 2017 XeXe collisions at 5.44 TeV</h4>
+          <p>Luminosity calibration for CMS during the 2017 Xenon-Xenon run, plus cross-luminometer consistency.</p>
+          <div class="research-slideshow" data-src="images/Analysis{n}.png" data-from="31" data-to="33"></div>
+        </div>
+
+      </div>
+      <div class="r-dots"></div>
+    </div>
+
+    <!-- BOX 2: Hardware Activities -->
+    <div class="r-box">
+      <h3>Hardware Activities</h3>
+      <div class="r-items">
+
+        <div class="r-item">
+          <h4>MALTA2 silicon sensor R&amp;D</h4>
+          <p>Silicon detector R&amp;D for future high-energy physics experiments: MALTA2 characterization, radiation hardness studies, and test beam campaigns at CERN SPS.</p>
+          <div class="research-slideshow" data-src="images/MALTA{n}.png" data-from="1" data-to="8"></div>
+        </div>
+
+      </div>
+      <div class="r-dots"></div>
+    </div>
+
+    <!-- BOX 3: Machine Learning -->
+    <div class="r-box">
+      <h3>Machine Learning</h3>
+      <div class="r-items">
+
+        <div class="r-item">
+          <h4>Machine learning for CMS</h4>
+          <p>Write your machine learning description here (the old text was a copy of the MALTA paragraph).</p>
+          <div class="research-slideshow" data-src="images/MALTA2_plot.png" data-from="0" data-to="0"></div>
+        </div>
+
+      </div>
+      <div class="r-dots"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= 3) JS ================= -->
+<script>
+  // Image slideshows: each cycles on its own
+  document.querySelectorAll(".research-slideshow").forEach(show => {
+    const from = +show.dataset.from, to = +show.dataset.to;
+    for (let n = from; n <= to; n++) {
+      const img = document.createElement("img");
+      img.src = show.dataset.src.replace("{n}", n === 0 ? "" : n);
+      show.appendChild(img);
     }
-    
-    rotateImages();
-    setInterval(rotateImages, 3000);
-    
-    let current1 = 0;
-      const slides1 = document.querySelectorAll(".vol-slide");
-      
-      function rotateImages1() {
-      
-        slides1.forEach(slide => slide.style.opacity = 0);
-      
-        slides1[current1].style.opacity = 1;
-      
-        current1 = (current1 + 1) % slides1.length;
-      }
-      
-      rotateImages1();
-      setInterval(rotateImages1, 3000);
+    const imgs = show.querySelectorAll("img");
+    let i = 0;
+    const tick = () => {
+      imgs.forEach(im => im.style.opacity = 0);
+      imgs[i].style.opacity = 1;
+      i = (i + 1) % imgs.length;
+    };
+    tick();
+    if (imgs.length > 1) setInterval(tick, 3000);
+  });
 
-// Quote slideshow
+  // Each box flashes through its own works
+  document.querySelectorAll(".r-box").forEach(box => {
+    const items = [...box.querySelectorAll(".r-item")];
+    const dotsBox = box.querySelector(".r-dots");
+    let idx = 0, timer;
 
-    let quoteIndex = 0;
-    const quotes = document.querySelectorAll(".quote-slide");
-    
-    function showQuotes() {
-    
-        quotes.forEach(quote => {
-            quote.style.display = "none";
-        });
-    
-        quoteIndex++;
-    
-        if (quoteIndex > quotes.length) {
-            quoteIndex = 1;
-        }
-    
-        quotes[quoteIndex - 1].style.display = "block";
-    
-        setTimeout(showQuotes, 4000);
+    function go(n) {
+      idx = (n + items.length) % items.length;
+      items.forEach((it, k) => it.classList.toggle("active", k === idx));
+      [...dotsBox.children].forEach((d, k) => d.classList.toggle("active", k === idx));
     }
-    
-    showQuotes();
+    function start() { if (items.length > 1) timer = setInterval(() => go(idx + 1), 7000); }
 
-
-
-  </script>
-</body>
-</html>
-
+    if (items.length > 1) {
+      items.forEach((_, k) => {
+        const d = document.createElement("span");
+        d.onclick = () => { go(k); clearInterval(timer); start(); };
+        dotsBox.appendChild(d);
+      });
+    }
+    box.onmouseenter = () => clearInterval(timer);
+    box.onmouseleave = start;
+    go(0); start();
+  });
+</script>
